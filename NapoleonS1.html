@@ -60,94 +60,7 @@
         
         <script>
             
-            document.addEventListener("DOMContentLoaded", function () {
-
-            let AktuelleFrage = 0;
-            let gespeicherterWert = sessionStorage.getItem("Credits");
-            let Credits = parseFloat(gespeicherterWert);
-
-            const Fragen = [
-                {
-                    frage: "Wann wurde die Idee für das Social-Credit-System erstmals vom chinesischen Staatsrat vorgestellt?",
-                    antworten: ["2010", "2014", "2016", "2020"],
-                    richtig: 1,
-                },
-                {
-                    frage: "Welche Technologien bilden die Grundlage des SCS?",
-                    antworten: ["Blockchain", "KI, Big Data", "Satellitendaten", "VR"],
-                    richtig: 1,
-                },
-                {
-                    frage: "Auf welche Regionen konzentrieren sich derzeit die Pilotprojekte des Social-Credit-Systems hauptsächlich?",
-                    antworten: ["Ländliche Gebiete", "Touristische Regionen", "Gebirgige Regionen", "Großstädte, dicht besiedelte Regionen"],
-                    richtig: 3,
-                },
-            ];
-
-            function zeigFrage() {
-                if (AktuelleFrage >= Fragen.length) {
-                    alert("Du hast alle Fragen beantwortet. Drücke unten Rechts auf den nächste Seite Knopf")
-                    return; 
-                }
-
-                const frage = Fragen[AktuelleFrage];
-                document.getElementById("InfoFrage").innerText = frage.frage;
-                document.getElementById("B_Antwort1").innerText = frage.antworten[0];
-                document.getElementById("B_Antwort2").innerText = frage.antworten[1];
-                document.getElementById("B_Antwort3").innerText = frage.antworten[2];
-                document.getElementById("B_Antwort4").innerText = frage.antworten[3];
-            }
-
-            function checkAnswer(option) {
-                if (AktuelleFrage >= Fragen.length) {
-                    return; 
-                }
-                
-                const richtigeAntwort = Fragen[AktuelleFrage].richtig;
-
-                
-                if (option === richtigeAntwort) {
-                    alert("Richtig! + 20 Credits");
-                    Credits+=20; 
-                    AktuelleFrage++; 
-                    zeigFrage();
-                } else {
-                    alert("Falsch! - 25 Credits");
-                    Credits-=25; 
-                }
-
-
-            }
-
-            document.getElementById("B_Antwort1").addEventListener("click", function () {
-                checkAnswer(0);
-            });
-            document.getElementById("B_Antwort2").addEventListener("click", function () {
-                checkAnswer(1);
-            });
-            document.getElementById("B_Antwort3").addEventListener("click", function () {
-                checkAnswer(2);
-            });
-            document.getElementById("B_Antwort4").addEventListener("click", function () {
-                checkAnswer(3);
-            });
-
-            zeigFrage();
-                
-                
-                let Buttonvisible = true;
-
-        
-                let creditModeActive = sessionStorage.getItem("CreditMode");
-
-        
-            if (creditModeActive === "true") { 
-                document.getElementById("menu").style.display = "none"; 
-                document.getElementById("buttonmenu").style.display = "none";}   
-            else if (creditModeActive === "false") { 
-                document.getElementById("Komm_wir_gehen_zu_Seite_2").style.display = "none";
-                document.getElementById("ganzeFrage").style.display = "none";}
-
+            
        
             document.getElementById("buttonmenu").addEventListener("click", function() {
                 if (Buttonvisible === true) {
@@ -160,7 +73,7 @@
 
         
             document.getElementById("Komm_wir_gehen_zu_Seite_2").addEventListener("click", function() {
-                window.location.href = "WebProjekt2S.html";
+                window.location.href = "NapoleonS2.html";
                 sessionStorage.setItem("Credits", Credits);
             });
             });
