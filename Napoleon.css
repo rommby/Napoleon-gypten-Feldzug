@@ -1,5 +1,5 @@
 body {
-    background-color: #f4e6c3; /* Sand / Wüste */
+    background-color: #e8d3a1; /* Sand / Wüste */
     font-family: "Georgia", "Times New Roman", serif;
 }
 
@@ -123,7 +123,7 @@ button {
     width: 40%;
     border: 6px solid #8b6f47; 
     border-radius: 10px; 
-    background-color: #e8d3a1; /* heller Sand */
+    background-color: #f4e6c3; /* heller Sand */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
