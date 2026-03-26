@@ -121,95 +121,6 @@
           <div id="Komm_wir_gehen_zu_Seite_4"><button>Nächste Seite</button></div>
 
         <script>
-            
-            document.addEventListener("DOMContentLoaded", function () {
-
-            let AktuelleFrage = 0;
-            let gespeicherterWert = sessionStorage.getItem("Credits");
-            let Credits = parseFloat(gespeicherterWert);
-
-            const Fragen = [
-                {
-                    frage: "Welche Datenquellen werden für das Social Credit System in China verwendet?",
-                    antworten: ["finanzielle Transaktionen", "Social Media", "Kreditkarten", "Finanzielle Transaktionen, Konsumverhalten, öffentliche Äußerungen, Straßenverkehrsverstöße"],
-                    richtig: 2,
-                },
-                {
-                    frage: "Was passiert, wenn jemand auf der Blacklist des Social Credit Systems landet?",
-                    antworten: ["bekommt bessere Kredite", "darf keine öffentlichen Verkehrsmittel nutzen", "muss Freiwilligenarbeit leisten", "Wird geschlagen"],
-                    richtig: 1,
-                },
-                {
-                    frage: "Welche Belohnung kann ein hoher Punktestand bringen?",
-                    antworten: ["Schnellere Visa, günstigere Kredite, bevorzugte Behandlung bei der Jobsuche", "Steuererhöhung", "Verkehrseinschränkungen", "Sozialkürzungen"],
-                    richtig: 0,
-                },
-            ];
-
-            function zeigFrage() {
-                if (AktuelleFrage >= Fragen.length) {
-                    alert("Du hast alle Fragen beantwortet. Drücke unten Rechts auf den nächste Seite Knopf")
-                    return; 
-                }
-
-                const frage = Fragen[AktuelleFrage];
-                document.getElementById("InfoFrage").innerText = frage.frage;
-                document.getElementById("B_Antwort1").innerText = frage.antworten[0];
-                document.getElementById("B_Antwort2").innerText = frage.antworten[1];
-                document.getElementById("B_Antwort3").innerText = frage.antworten[2];
-                document.getElementById("B_Antwort4").innerText = frage.antworten[3];
-            }
-
-            function checkAnswer(option) {
-                if (AktuelleFrage >= Fragen.length) {
-                    return; 
-                }
-                
-                const richtigeAntwort = Fragen[AktuelleFrage].richtig;
-
-                
-                if (option === richtigeAntwort) {
-                    alert("Richtig! + 20 Credits");
-                    Credits+=20; 
-                    AktuelleFrage++; 
-                    zeigFrage();
-                } else {
-                    alert("Falsch! - 25 Credits");
-                    Credits-=25; 
-                }
-
-
-            }
-
-            document.getElementById("B_Antwort1").addEventListener("click", function () {
-                checkAnswer(0);
-            });
-            document.getElementById("B_Antwort2").addEventListener("click", function () {
-                checkAnswer(1);
-            });
-            document.getElementById("B_Antwort3").addEventListener("click", function () {
-                checkAnswer(2);
-            });
-            document.getElementById("B_Antwort4").addEventListener("click", function () {
-                checkAnswer(3);
-            });
-
-            zeigFrage();
-                
-                
-                let Buttonvisible = true;
-
-        
-                let creditModeActive = sessionStorage.getItem("CreditMode");
-  
-
-        
-            if (creditModeActive === "true") { 
-                document.getElementById("menu").style.display = "none"; 
-                document.getElementById("buttonmenu").style.display = "none";}   
-            else if (creditModeActive === "false") { 
-                document.getElementById("Komm_wir_gehen_zu_Seite_4").style.display = "none";
-                document.getElementById("ganzeFrage").style.display = "none";}
 
        
             document.getElementById("buttonmenu").addEventListener("click", function() {
@@ -221,10 +132,6 @@
                     Buttonvisible = true;}
             });
 
-        
-            document.getElementById("Komm_wir_gehen_zu_Seite_4").addEventListener("click", function() {
-                window.location.href = "WebProjekt4S.html";
-                sessionStorage.setItem("Credits", Credits);
             });
             });
          
