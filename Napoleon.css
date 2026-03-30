@@ -37,11 +37,15 @@ h3 {
 
 /* Menü */
 #menu {
-    display: none;
+    display: flex;
     justify-content: center;
     border-radius: 5px;
     padding: 10px;
     background-color: #7a5c3e;
+}
+
+#menu.active {
+    display: none;
 }
 
 #menu a {
