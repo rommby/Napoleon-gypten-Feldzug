@@ -1,163 +1,231 @@
 body {
-    background-color: #e8d3a1; /* Sand / Wüste */
-    font-family: "Georgia", "Times New Roman", serif;
+    margin: 0;
+    background: linear-gradient(
+        to bottom,
+        #7a5c3e 0px,
+        #7a5c3e 60px,
+        #f4e6c3 60px,
+        #f4e6c3 100%
+    );
+    font-family: 'Cinzel', serif;
+    color: #3e2f1c;
 }
 
-/* Überschriften */
+
 h1 {
     text-align: center;
     text-transform: uppercase;
-    background-color: #8b6f47; /* dunkles Braun */
-    color: #fdf6e3; /* Pergament */
+    background: #a67c52;
+    color: #fdf6e3;
     font-size: 60px;
-    border-radius: 15px;
-    margin-bottom: 20px;
+    padding: 20px;
+    margin: 40px 0;
+    position: relative;
+    letter-spacing: 2px;
 }
+
+h1::before,
+h1::after {
+    content: "❖";
+    font-size: 28px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+h1::before { left: 20px; }
+h1::after { right: 20px; }
 
 h2 {
     text-align: center;
+    background: #8b6f47;
     color: #fdf6e3;
-    background-color: #a67c52; /* Bronze */
-    text-transform: uppercase;
-    font-size: 30px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    display: block; 
-    width: 80%; 
-    margin-left: auto;
-    margin-right: auto; 
-    padding: 0 10px;
+    padding: 12px;
+    width: 80%;
+    margin: 30px auto;
+    border-left: 10px solid #c2a878;
+    border-right: 10px solid #c2a878;
+    letter-spacing: 1px;
 }
 
 h3 {
-    margin: 0 150px;
-    color: #5a4630; /* dunkler Sandton */
+    margin: 40px 150px 10px 150px;
+    color: #5a3e2b;
     text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 20px;
+    position: relative;
+    padding-left: 18px;
 }
 
-/* Menü */
+h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(#a67c52, #c2a878);
+    border-radius: 5px;
+}
+
+
 #menu {
     display: flex;
     justify-content: center;
-    border-radius: 5px;
-    padding: 10px;
     background-color: #7a5c3e;
-}
-
-#menu.active {
-    display: none;
+    padding-bottom: 25px;
+    font-size: 22px;
 }
 
 #menu a {
     color: #fdf6e3;
     text-decoration: none;
-    padding: 14px 20px;
-    margin: 0 10px;
+    padding: 10px 18px;
+    margin: 0 8px;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
 #menu a:hover {
     background-color: #c2a878;
-    border-radius: 5px;
+    color: #3e2f1c;
 }
 
-/* Text */
+
 p {
-    letter-spacing: 1px;
-    font-size: 14px;
-    color: #3e2f1c;
-    margin: 0 150px;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    margin: 20px 150px;
+    text-align: justify;
+
+    background: rgba(255, 248, 220, 0.4);
+    padding: 15px 20px;
+    border-left: 5px solid #c2a878;
+    border-radius: 10px;
 }
+
 
 a {
-    text-decoration: none;
     color: #8b6f47;
-    letter-spacing: 2px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: 0.3s;
 }
 
-/* Buttons */
+a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #c2a878;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #5a3e2b;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+
 button {
     background-color: #a67c52;
     color: #fdf6e3;
-    cursor: pointer;
-}
-
-#buttonScore {
-    padding: 10px 20px;
-    font-size: 50px;
-    cursor: pointer;
-    background-color: #8b6f47;
-    color: #fdf6e3;
     border: none;
-    border-radius: 5px;
-    transition: 0.3s;
-    width: 420px;
-    height: 120px;
-}
-
-#buttonScore:hover {
-    background-color: #c2a878;
-    transform: scale(1.05);
-}
-
-/* Antwortbuttons */
-#B_Antwort1, #B_Antwort2, #B_Antwort3, #B_Antwort4 {
-    font-size: 18px; 
-    padding: 10px 20px; 
-    border-radius: 5px; 
-    background-color: #a67c52; 
-    color: #fdf6e3; 
-    border: 1px solid #8b6f47;
-    transition: 0.3s; 
+    padding: 10px 15px;
     cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
 }
 
-#B_Antwort1:hover, 
-#B_Antwort2:hover, 
-#B_Antwort3:hover, 
-#B_Antwort4:hover {
+button:hover {
     background-color: #c2a878;
     transform: scale(1.05);
 }
 
-/* Fragebox */
-#ganzeFrage {
-    text-align: center;
-    margin: 0 auto; 
-    padding: 20px; 
-    width: 40%;
-    border: 6px solid #8b6f47; 
-    border-radius: 10px; 
-    background-color: #f4e6c3; /* heller Sand */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+
+ol {
+    margin: 30px 150px;
+    padding-left: 40px;
+    counter-reset: item;
 }
 
-#InfoFrage {
-    font-size: 24px;
-    color: #3e2f1c; 
-    margin-bottom: 20px;
+li {
+    margin: 15px 0;
+    font-size: 16px;
+    line-height: 1.6;
+
+    background: rgba(255, 248, 220, 0.4);
+    border-radius: 10px;
+
+    padding: 10px 15px 10px 50px;
+    position: relative;
+    transition: 0.2s;
 }
 
-/* Listen & Tabellen */
-ol, li {
-    color: #3e2f1c;
-    margin: 0 75px;
+ol li::before {
+    counter-increment: item;
+    content: counter(item);
+
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: #a67c52;
+    color: #fdf6e3;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
+
+li:hover {
+    background: rgba(194, 168, 120, 0.5);
+    transform: translateX(5px);
+}
+
 
 table {
-    border-collapse: separate; 
-    border-spacing: 15px;     
-    margin-left: 150px;            
+    border-collapse: collapse;
+    margin: 40px auto;
+    width: 75%;
+    background: rgba(255, 248, 220, 0.6);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-th, td {
-    border: 1px solid #8b6f47;
-    letter-spacing: 3px;
-    color: #3e2f1c;
-    padding: 10px 20px; 
-    text-align: left; 
+th {
+    background: #8b6f47;
+    color: #fdf6e3;
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Extras */
+td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(139, 111, 71, 0.3);
+}
+
+tr:hover {
+    background: rgba(194, 168, 120, 0.3);
+    transition: 0.3s;
+}
+
+
 hr {
     border: 1px solid #8b6f47;
 }
@@ -165,18 +233,11 @@ hr {
 img {
     border-radius: 25px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 #QuellenAngabe_Bild {
     letter-spacing: 3px;
     color: #8b6f47;
     text-align: center;
-}
-
-#ScoreTable {
-    border-collapse: separate; 
-    border-spacing: 15px;     
-    margin: 0 250px;            
 }
